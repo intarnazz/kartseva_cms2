@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMS</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <section class="cms-main">
+      <section class="cms-main__head">
+        <h2 class="cms-main__head__title">CMS</h2>
+        <div class="cms-main__head__sum">
+          <p class="cms-main__head__sum__title">Итоговая стоимость:</p>
+          <div class="cms-main__head__sum__value">
+            $<span id="allPrice"></span>
+          </div>
+        </div>
+      </section>
+      <section class="cms-main__container">
+        <div class="cms-main__container__form">
+          <div class="cms-main__conatiner__form__filter">
+            <button class="cms-main__container__form__filter__button">
+              <img
+                src="icons/filter.svg"
+                alt="фильтр"
+                class="cms-main__form__filter-img"
+              />Фильтр
+            </button>
+            <div class="cms-main__container__form__filter__text-input">
+              <img
+                src="icons/search.svg"
+                alt="писк"
+                class="cms-main__container__form__input__icon"
+              />
+              <input
+                placeholder="Поиск по наименованию и категории"
+                type="text"
+                class="cms-main__conatiner__form__input__field"
+                alt="поиск"
+              />
+            </div>
+          </div>
+          <button class="cms-main__container__form__add-button">
+            ДОБАВИТЬ ТОВАР
+          </button>
+        </div>
+
+        <section class="cms-main__conatiner__table-form">
+          <table class="cms-main__container__table-form__table">
+            <tr class="cms-main__container__table-form__table__row">
+              <th class="cms-main__container__table-form__table__row__head">
+                ID
+              </th>
+              <th class="cms-main__container__table-form__table__row__head">
+                НАИМЕНОВАНИЕ
+              </th>
+              <th class="cms-main__container__table-form__table__row__head">
+                КАТЕГОРИЯ
+              </th>
+              <th class="cms-main__container__table-form__table__row__head">
+                ЕД/ИЗМ
+              </th>
+              <th class="cms-main__container__table-form__table__row__head">
+                КОЛИЧЕСТВО
+              </th>
+              <th class="cms-main__container__table-form__table__row__head">
+                ЦЕНА
+              </th>
+              <th class="cms-main__container__table-form__table__row__head">
+                ИТОГ
+              </th>
+              <th
+                class="cms-main__container__table-form__table__row__head"
+              ></th>
+              <th
+                class="cms-main__container__table-form__table__row__head"
+              ></th>
+              <th
+                class="cms-main__container__table-form__table__row__head"
+              ></th>
+            </tr>
+          </table>
+
+          <div class="cms-main__container__table-form__foot">
+            <p
+              class="cms-main__container__table-form__foot__show-on-page-title"
+              style="user-select: none"
+            >
+              Показывать на странице:
+            </p>
+            <select
+              name="rows-amount"
+              id="row-amount"
+              onchange="changeValueEl()"
+            >
+              <option value="10">10</option>
+              <option value="20">20</option>
+            </select>
+
+            <p
+              class="cms-main__container__table-form__foot__page-numbers"
+              style="user-select: none"
+            >
+              <span class="cms-main__table-foot__page-numbers__start">1 </span>
+              -
+              <span class="cms-main__table-foot__page-numbers__end"> </span> of
+              <span class="cms-main__table-foot__page-numbers__all"> </span>
+            </p>
+            <div class="cms-main__container__table-form__foot__nav">
+              <div class="cms-main__table-foot__nav__prev">
+                <button class="cms-main__table-foot__nav__prev__button">
+                  <img src="icons/prev.svg" alt="предыдущая" />
+                </button>
+              </div>
+              <div class="cms-main__table-foot__nav__next">
+                <button class="cms-main__table-foot__nav__next__button">
+                  <img src="icons/next.svg" alt="следующая" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+
+    <section class="add-item" id="myForm">
+      <img src="Group 85.svg" alt="" width="30px" class="cancel" />
+      <div class="add-item__text-container">
+        <h2 class="add-item__title">Добавить товар</h2>
+      </div>
+      <form action="" class="add-item__main-section">
+        <div class="bg-white">
+          <div class="add-item__main-section__content-container">
+            <label class="add-item__main-section__name-form" for="name"
+              >Наименование</label
+            >
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="add-item__main-section__form"
+              required
+            />
+            <label class="add-item__main-section__name-form" for="category"
+              >Категория</label
+            >
+            <input
+              type="text"
+              name="category"
+              id="category"
+              class="add-item__main-section__form"
+              required
+            />
+          </div>
+          <div class="add-item__main-section__content-container">
+            <label class="add-item__main-section__name-form" for="description"
+              >Описание</label
+            >
+            <textarea
+              name="description"
+              id="description"
+              class="add-item__main-section__form description"
+              required
+            ></textarea>
+          </div>
+          <div class="add-item__main-section__content-container">
+            <label class="add-item__main-section__name-form" for="units"
+              >Единицы измерения</label
+            >
+            <input
+              type="text"
+              name="units"
+              id="units"
+              class="add-item__main-section__form"
+              required
+            />
+            <div class="checkbox">
+              <label class="add-item__main-section__name-form" for="discount"
+                >Дисконт</label
+              >
+              <div>
+                <label for="discount" class="discount-container">
+                  <input
+                    id="discount"
+                    name="discount"
+                    type="checkbox"
+                    class="add-item__main-section__checkbox"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+                <input
+                  type="number"
+                  name="discountt"
+                  id="discount-value"
+                  class="add-item__main-section__form litle"
+                  min="1"
+                  max="100"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+          <div class="add-item__main-section__content-container">
+            <label class="add-item__main-section__name-form" for="count"
+              >Количество</label
+            >
+            <input
+              type="number"
+              name="count"
+              id="count"
+              class="add-item__main-section__form"
+              required
+            />
+            <label class="add-item__main-section__name-form" for="price"
+              >Цена</label
+            >
+            <input
+              type="number"
+              name="price"
+              id="price"
+              class="add-item__main-section__form"
+              required
+            />
+          </div>
+
+          <div class="add-item__main-section__file">
+            <p class="add-item__main-section__error">
+                Изображение не должно превышать размер 1 Мб
+            </p>
+            <input
+                class="add-image"
+                name="image" 
+                id="input__file"
+                type="file"
+            />
+            <label for="input__file" class="input__file-button">
+                <span class="input__file-button-text">Добавить изображение</span>
+            </label>
+        </div>
+        
+        </div>
+        <img
+          src="/2424579063 1-PhotoRoom.png-PhotoRoom.png"
+          alt=""
+          class="add-item__main-section__img"
+        />
+        <div class="add-item__text-footer">
+          <p class="add-item__price">
+            Итоговая стоимость:
+            <span class="add-item__price-text" id="modalSum"> $ 0</span>
+          </p>
+          <button class="add-product" type="submit">Добавить товар</button>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
