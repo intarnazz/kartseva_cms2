@@ -54,18 +54,17 @@ import * as change from "../modules/changePage.js";
       const discount = formData.get("discountt");
       const count = formData.get("count");
       const price = formData.get("price");
-      const imageFile = formData.get("image"); // Убедитесь, что здесь правильное имя
+      const imageFile = formData.get("image"); 
 
       if (imageFile && imageFile.size > 0) {
         if (imageFile.size > 1048576) {
-          // Проверка на размер файла > 1 МБ
           alert("Изображение не должно превышать размер 1 Мб");
           return;
         }
 
         const reader = new FileReader();
         reader.onload = function () {
-          const imageBase64 = reader.result; // Строка Base64
+          const imageBase64 = reader.result; 
           obj.push({
             id: Math.floor(Math.random() * 100000),
             denomination: namee,
@@ -73,7 +72,7 @@ import * as change from "../modules/changePage.js";
             points: units,
             count: count,
             price: price,
-            image: imageBase64,  // Сохраняем изображение как Base64
+            image: imageBase64,
             get value() {
               if (discount) {
                 return (
@@ -87,7 +86,6 @@ import * as change from "../modules/changePage.js";
           });
           
 
-          // Обновляем таблицу и интерфейс
           allConst.formAddItem.style.display = "none";
           document.getElementById("modalSum").textContent = "$";
           allConst.allForm.reset();
@@ -97,16 +95,14 @@ import * as change from "../modules/changePage.js";
           allConst.sumAllProduct = change.changeItog(allConst.sum);
           change.changeId(allConst, obj, id);
 
-          // Сохраняем данные в localStorage
           localStorage.setItem("obj", JSON.stringify(obj));
         };
-        reader.readAsDataURL(imageFile); // Преобразуем файл в строку Base64
+        reader.readAsDataURL(imageFile);
       } else {
         alert("Выберите изображение!");
       }
     });
 
-    // Модальные окна
     allConst.addBtnMain.addEventListener("click", () => {
       allConst.formAddItem.style.display = "flex";
     });
@@ -114,7 +110,6 @@ import * as change from "../modules/changePage.js";
       allConst.formAddItem.style.display = "none";
     });
 
-    // Дисконт
     allConst.checkbox.addEventListener("change", () => {
       if (allConst.checkbox.checked) {
         allConst.input.removeAttribute("disabled");
@@ -124,7 +119,6 @@ import * as change from "../modules/changePage.js";
       }
     });
 
-    // Рассчёт в форме
     allConst.inputs.forEach((elem) => {
       elem.addEventListener("change", () => {
         console.log("HAHA");

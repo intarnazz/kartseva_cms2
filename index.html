@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -236,19 +235,18 @@
 
           <div class="add-item__main-section__file">
             <p class="add-item__main-section__error">
-                Изображение не должно превышать размер 1 Мб
+              Изображение не должно превышать размер 1 Мб
             </p>
             <input
-                class="add-image"
-                name="image" 
-                id="input__file"
-                type="file"
+              class="add-image"
+              name="image"
+              id="input__file"
+              type="file"
             />
             <label for="input__file" class="input__file-button">
-                <span class="input__file-button-text">Добавить изображение</span>
+              <span class="input__file-button-text">Добавить изображение</span>
             </label>
-        </div>
-        
+          </div>
         </div>
         <img
           src="/2424579063 1-PhotoRoom.png-PhotoRoom.png"
@@ -260,9 +258,15 @@
             Итоговая стоимость:
             <span class="add-item__price-text" id="modalSum"> $ 0</span>
           </p>
-          <button class="add-product" type="submit">Добавить товар</button>
+          <button  class="add-product" type="submit">Добавить товар</button>
         </div>
       </form>
     </section>
   </body>
+  <script src="js/script.js" type="module"></script>
+  <script>
+    function removeElement(e) {
+      e.remove();
+    }
+  </script>
 </html>
